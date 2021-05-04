@@ -6,6 +6,14 @@ import java.util.regex.Pattern;
 
 public class Main {
 
+    private final static String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    @FunctionalInterface
+    public interface ValidateDetails {
+        public boolean validateDetails(String detail);
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome To User Registration Program");
 
@@ -37,5 +45,19 @@ public class Main {
                 System.out.println("Enter a valid input");
             }
         }
+
+        // Email Id Validation Using Lambda Expression
+        System.out.println("Enter Your Email ID for User Registration :");
+        String emailId = sc.nextLine();
+        ValidateDetails emailIdObj = (emailIdPassed) -> {
+            if (emailIdPassed.matches(EMAIL_PATTERN))
+                return true;
+            else
+                return false;
+        };
+        if (emailIdObj.validateDetails(emailId))
+            System.out.println("Entered email id is : " + emailId);
+        else
+            System.out.println("The pattern of Email Id is incorrect. Please try again!");
     }
 }
