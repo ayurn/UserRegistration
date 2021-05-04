@@ -12,18 +12,25 @@ public class Main {
         Scanner sc = new Scanner (System.in);
         System.out.println("Enter the first name :");
         String firstName = sc.nextLine();
-        String pattern ="^[A-Z][a-z]{2,}";
+        System.out.println("Enter the last name :");
+        String lastName = sc.nextLine();
+        String pattern ="^[A-Z][A-Za-z]{2,}";
         Pattern p = Pattern.compile(pattern);
         Matcher m1 = p.matcher(firstName);
-        if(m1.matches())
+        Matcher m2 = p.matcher(lastName);
+        if(m1.matches() && m2.matches())
         {
-            System.out.println("The first name of the user is: "+firstName);
+            System.out.println("The full name of the user is: "+firstName+" "+lastName);
         }
         else
         {
-            if(firstName.length() <= 2 )
+            if(firstName.length() <= 2)
             {
                 System.out.println("The first name should have minimum 3 characters");
+            }
+            else if(lastName.length() <= 2)
+            {
+                System.out.println("The last name should have minimum 3 characters");
             }
             else
             {
