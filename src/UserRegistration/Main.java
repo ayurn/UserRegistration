@@ -9,7 +9,7 @@ public class Main {
     private final static String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private final static String PHONE_NUMBER_PATTERN = "^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)\\d{10}\\s*,?$";
-    private final static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*?[0-9])[A-Za-z0-9]{8,}$";
+    private final static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z0-9!@#$%^&*?]{8,}$";
 
     @FunctionalInterface
     public interface ValidateDetails {
