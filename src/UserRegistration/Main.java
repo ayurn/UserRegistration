@@ -49,6 +49,7 @@ public class Main {
         }
 
         // Email Id Validation Using Lambda Expression
+        //checking email separately
         System.out.println("Enter Your Email ID for User Registration :");
         String emailId = sc.nextLine();
         ValidateDetails emailIdObj = (emailIdPassed) -> {
