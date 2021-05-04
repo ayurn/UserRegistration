@@ -8,6 +8,7 @@ public class Main {
 
     private final static String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private final static String PHONE_NUMBER_PATTERN = "^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)\\d{10}\\s*,?$";
 
     @FunctionalInterface
     public interface ValidateDetails {
@@ -59,5 +60,20 @@ public class Main {
             System.out.println("Entered email id is : " + emailId);
         else
             System.out.println("The pattern of Email Id is incorrect. Please try again!");
+
+        // Phone Number Validation Using Lambda Expression
+        System.out.println("Enter Your Phone Number for User Registration :");
+        String phoneNo = sc.nextLine();
+        ValidateDetails phoneNoObj = (phoneNoPassed) -> {
+            if (phoneNoPassed.matches(PHONE_NUMBER_PATTERN))
+                return true;
+            else
+                return false;
+        };
+        if (phoneNoObj.validateDetails(phoneNo))
+            System.out.println("Your Phone Number provided is : " + phoneNo);
+        else
+            System.out.println("The pattern of Phone Number is incorrect. Please try again!");
+        
     }
 }
